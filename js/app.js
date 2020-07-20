@@ -33,8 +33,8 @@ const checkGame = () => {
     const eight = boardDiv[7].classList[2];
     const nine = boardDiv[8].classList[2];
     
-    if (one && one === two && one === three) {
-        whosWinner(one);
+if (one && one === two && one === three) {
+    whosWinner(one);
 } else if (four && four === five && four === six) {
     whosWinner(four);
 } else if (seven && seven === eight && seven === nine) {
