@@ -60,12 +60,15 @@ body {
 /* change symbol to image or different symbol */
 .x::before {
   content: 'x';
-  font-size: 200px;
-  position: absolute;
+  font-size: 150px;
+  /* display: flex;
+  justify-content: center;
+  align-items: center;
+  bottom: 20px; */
 
 }
 .o::before {
   content: 'o';
-  font-size: 200px;
+  font-size: 150px;
   position:   absolute;
 }

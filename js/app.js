@@ -4,7 +4,6 @@ const boardDiv = document.querySelectorAll('.cell')
 
 let gameOnGoing = true;
 let xTurn = true;
-let champion = null;
 
 const whosWinner = (char) => {
     gameOnGoing = false;
@@ -12,9 +11,10 @@ const whosWinner = (char) => {
     if (char === 'x') {
         actionDiv.innerHTML = `${gameSymbols(player1)} has won!`
        
+         
     } else {
         actionDiv.innerHTML = `${gameSymbols(player2)} has won!`
-    
+       
     }
 }
 
@@ -32,23 +32,32 @@ const checkGame = () => {
     const seven = boardDiv[6].classList[2];
     const eight = boardDiv[7].classList[2];
     const nine = boardDiv[8].classList[2];
+   
     
 if (one && one === two && one === three) {
     whosWinner(one);
+   
 } else if (four && four === five && four === six) {
     whosWinner(four);
+    
 } else if (seven && seven === eight && seven === nine) {
     whosWinner(seven);
+     
 } else if (one && one === four && one === nine) {
     whosWinner(one);
+     
 } else if (two && two === five && two === eight) {
     whosWinner(two);
+     
 } else if (three && three === six && three === nine) {
     whosWinner(three);
+     
 } else if (one && one === five && one === nine) {
     whosWinner(one);
+     
 } else if (three && three === five && three === seven) {
     whosWinner(three);
+     
 } else if (one && two && three && four && five && six && seven && eight && nine) {
     gameOnGoing = false;
     actionDiv.innerHTML = "it's a TIE!!"
@@ -64,7 +73,6 @@ if (one && one === two && one === three) {
 const resetGame = () => {
     
     xTurn = true;
-    champion = null;
     actionDiv.innerHTML =  "Let's do this!";
     for (const cells of boardDiv) {
         cells.classList.remove('x');
@@ -74,9 +82,10 @@ const resetGame = () => {
 const clickCell = (e) => {
     const listOfCell = e.target.classList;
     
-    if (listOfCell[2] === 'x' || listOfCell[2] === 'o') {
+    if (!gameOnGoing || listOfCell[2] === 'x' || listOfCell[2] === 'o') {
         return;
     }
+   
     if (xTurn) {
         listOfCell.add('x');
         checkGame();
